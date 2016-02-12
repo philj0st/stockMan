@@ -52,6 +52,7 @@
             this.customersCheckedListBox.Name = "customersCheckedListBox";
             this.customersCheckedListBox.Size = new System.Drawing.Size(120, 94);
             this.customersCheckedListBox.TabIndex = 3;
+            this.customersCheckedListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.customersCheckedListBox_ItemCheck);
             // 
             // supplierCheckedListBox
             // 

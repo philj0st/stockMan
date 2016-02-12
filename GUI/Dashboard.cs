@@ -25,6 +25,13 @@ namespace GUI
             //important to set after the DataSource has been set.
             customersCheckedListBox.DisplayMember = "CompanyName";
             customersCheckedListBox.ValueMember = "ID";
+
+        }
+
+        private void customersCheckedListBox_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            //use other event to write after checked prop has been changed
+            Console.WriteLine(((sender as CheckedListBox).CheckedItems[0] as Customer).ID);
         }
     }
 }
