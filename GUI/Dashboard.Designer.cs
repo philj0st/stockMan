@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.customersCheckedListBox = new System.Windows.Forms.CheckedListBox();
+            this.customerCheckedListBox = new System.Windows.Forms.CheckedListBox();
             this.supplierCheckedListBox = new System.Windows.Forms.CheckedListBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.elementsCheckedListBox = new System.Windows.Forms.CheckedListBox();
+            this.elementCheckedListBox = new System.Windows.Forms.CheckedListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.stockGridView = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.stockGridView)).BeginInit();
@@ -47,14 +47,14 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Kunden";
             // 
-            // customersCheckedListBox
+            // customerCheckedListBox
             // 
-            this.customersCheckedListBox.FormattingEnabled = true;
-            this.customersCheckedListBox.Location = new System.Drawing.Point(16, 29);
-            this.customersCheckedListBox.Name = "customersCheckedListBox";
-            this.customersCheckedListBox.Size = new System.Drawing.Size(120, 94);
-            this.customersCheckedListBox.TabIndex = 3;
-            this.customersCheckedListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.customersCheckedListBox_ItemCheck);
+            this.customerCheckedListBox.FormattingEnabled = true;
+            this.customerCheckedListBox.Location = new System.Drawing.Point(16, 29);
+            this.customerCheckedListBox.Name = "customerCheckedListBox";
+            this.customerCheckedListBox.Size = new System.Drawing.Size(120, 94);
+            this.customerCheckedListBox.TabIndex = 3;
+            this.customerCheckedListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.allCheckedListBox_ItemCheck);
             // 
             // supplierCheckedListBox
             // 
@@ -63,6 +63,7 @@
             this.supplierCheckedListBox.Name = "supplierCheckedListBox";
             this.supplierCheckedListBox.Size = new System.Drawing.Size(120, 94);
             this.supplierCheckedListBox.TabIndex = 4;
+            this.supplierCheckedListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.allCheckedListBox_ItemCheck);
             // 
             // label2
             // 
@@ -73,13 +74,14 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Lieferwerke";
             // 
-            // elementsCheckedListBox
+            // elementCheckedListBox
             // 
-            this.elementsCheckedListBox.FormattingEnabled = true;
-            this.elementsCheckedListBox.Location = new System.Drawing.Point(270, 29);
-            this.elementsCheckedListBox.Name = "elementsCheckedListBox";
-            this.elementsCheckedListBox.Size = new System.Drawing.Size(120, 94);
-            this.elementsCheckedListBox.TabIndex = 6;
+            this.elementCheckedListBox.FormattingEnabled = true;
+            this.elementCheckedListBox.Location = new System.Drawing.Point(270, 29);
+            this.elementCheckedListBox.Name = "elementCheckedListBox";
+            this.elementCheckedListBox.Size = new System.Drawing.Size(120, 94);
+            this.elementCheckedListBox.TabIndex = 6;
+            this.elementCheckedListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.allCheckedListBox_ItemCheck);
             // 
             // label3
             // 
@@ -92,9 +94,14 @@
             // 
             // stockGridView
             // 
+            this.stockGridView.AllowUserToAddRows = false;
+            this.stockGridView.AllowUserToDeleteRows = false;
+            this.stockGridView.AllowUserToOrderColumns = true;
+            this.stockGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.stockGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.stockGridView.Location = new System.Drawing.Point(16, 130);
             this.stockGridView.Name = "stockGridView";
+            this.stockGridView.ShowEditingIcon = false;
             this.stockGridView.Size = new System.Drawing.Size(374, 150);
             this.stockGridView.TabIndex = 8;
             // 
@@ -105,10 +112,10 @@
             this.ClientSize = new System.Drawing.Size(479, 358);
             this.Controls.Add(this.stockGridView);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.elementsCheckedListBox);
+            this.Controls.Add(this.elementCheckedListBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.supplierCheckedListBox);
-            this.Controls.Add(this.customersCheckedListBox);
+            this.Controls.Add(this.customerCheckedListBox);
             this.Controls.Add(this.label1);
             this.Name = "Dashboard";
             this.Text = "Dashboard";
@@ -120,10 +127,10 @@
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckedListBox customersCheckedListBox;
+        private System.Windows.Forms.CheckedListBox customerCheckedListBox;
         private System.Windows.Forms.CheckedListBox supplierCheckedListBox;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.CheckedListBox elementsCheckedListBox;
+        private System.Windows.Forms.CheckedListBox elementCheckedListBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView stockGridView;
     }

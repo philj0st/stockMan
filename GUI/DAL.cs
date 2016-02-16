@@ -128,7 +128,7 @@ namespace GUI
             {1}
             {2}
             ;", customerPattern, supplierPattern, elementPattern);
-            Console.WriteLine("WHERE Stock.customerID IN (" + String.Join(",", customerIDs) + ")");
+            Console.WriteLine(queryString);
             return query(queryString);
         }
 
