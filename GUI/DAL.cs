@@ -132,6 +132,33 @@ namespace GUI
             return query(queryString);
         }
 
+        //#TODO: affectedRows from ExecuteNonQuery are Zero if we use 2 paramets. if we hardcode the CommandText it works
+        public void changeStock(int stockID, int amount) {
+            connectionHandle.Open();
+            OleDbCommand cmd = connectionHandle.CreateCommand();
+            cmd.Parameters.Add(new OleDbParameter("@stockID", stockID));
+            cmd.Parameters.Add(new OleDbParameter("@amount", amount));
+            //cmd.CommandText = "UPDATE Stock SET amount = amount + @amount WHERE ID = @stockID";
+            cmd.CommandText = "UPDATE Stock SET amount = amount + @amount WHERE ID = @stockID";
+            int affectedRows = cmd.ExecuteNonQuery();
+            cmd.Parameters.Clear();
+            connectionHandle.Close();
+        }
+
+        //create new row with stock
+        public void newStock(int customerID, int supplierID, int elementID, int amount){
+            connectionHandle.Open();
+            OleDbCommand cmd = connectionHandle.CreateCommand();
+            cmd.Parameters.Add(new OleDbParameter("@customerID", customerID));
+            cmd.Parameters.Add(new OleDbParameter("@supplierID", supplierID));
+            cmd.Parameters.Add(new OleDbParameter("@elementID", elementID));
+            cmd.Parameters.Add(new OleDbParameter("@amount", amount));
+            cmd.CommandText = "INSERT INTO Stock (customerID,supplierID,elementID,amount) VALUES (@customerID,@supplierID,@elementID,@amount)";
+            cmd.ExecuteNonQuery();
+            cmd.Parameters.Clear();
+            connectionHandle.Close();
+        }
+
         private DataTable query(string queryString) {
             DataSet dataSet = new DataSet();
             try

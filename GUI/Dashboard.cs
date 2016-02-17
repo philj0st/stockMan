@@ -21,6 +21,9 @@ namespace GUI
             Controller controller = Controller.Instance;
             dal = DAL.Instance;
 
+            //dal.newStock(2, 1, 2, 50000);
+            dal.changeStock(5, 5100);
+
             //populate the controller with results from the db
             controller.addCustomersFromDt(dal.getTable("Customer"));
             controller.addSuppliersFromDt(dal.getTable("Supplier"));
